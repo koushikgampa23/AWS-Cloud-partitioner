@@ -105,6 +105,25 @@
         Storage: pay for data stored in the cloud
         Data transfer OUT of the cloud: data transfer IN is free
         Solves the expensive issue of traditional IT
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20054392](https://github.com/user-attachments/assets/9b2fae2e-fa47-4a53-8ce0-b1429f201490)
+### AWS facts
+    In 2023, AWS has $90 billion annual revenue
+    10lakh active users
+### AWS Cloud use cases
+    Allows us to build sophisticated and scalable applications
+    Applicable for diverse set of industries
+    Use cases include
+        Enterprise It, Backup and restore, Big data analytics
+        Web hosting, mobile and social apps
+        gaming
+    Aws global infrastructure
+        AWS Regions - has regions all around the world, Names can be us-east-1, eu-west-3, A region is cluster of data centers, Most AWS services are region scoped
+        AWS avaliablity zones
+        AWS Data Centers
+        AWS Edge locations/points of presence
+    How to AWS region?
+    If you want to lauch a application in which region will you lauch?
+        
         
     
         
