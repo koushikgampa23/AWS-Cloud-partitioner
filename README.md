@@ -53,6 +53,60 @@
         Quickly and easily scale based on demand
     Measured Service
         Usage is measured, users pay correctly what they have used.
+### Six advantages of cloud computing
+    Trade capital expense(CAPEX) for operation expense (OPEX)
+        Pay on Demand dont own hardware
+        Reduced total cost of ownership(TCO) and operational expense (OPEX)
+    Benefits from massive economics of scale
+        Prices are reduced as AWS is more efficient due to large scale
+    Stop Guessing capacity
+        Scale based on actual measured usage.
+    Increase speed and agility
+    Stop spending on running and maintaining data centers
+    Go global in minutes: leverage the global infrastructure
+#### Problems solved by cloud
+    Flexibility: change resources types when needed
+    Cost effectiveness: pay as you go, for what you use
+    Scalabitliy: accomate larger loads by making hardware stronger or adding additional nodes.
+    Elasticity: Ability to scale out and scale in when needed
+    High avaliablity and fault tolarance: built around data centers
+    Agility: Rapidly develop, test and lauch the software applications
+## Types of cloud computing
+    Infrastructure as a Service(IaaS)
+        Provide building blocks for IT
+        Provides networking, computers, data storage, space
+        highest level of flexibility
+        Easy with traditional on premises IT
+    Platform as a Serivce(Paas)
+        Removes the need for your organization to manage underlying infrastructure
+        Focus on deployment and management of the application
+    Software as a Service(Saas)
+        Completed product that is run and managed by service providers
+    Difference between this three
+        On premises is the one managing operations like applications, data, runtime, middleware, os, virtualization, servers, storage, networking
+        IaaS: Applications, data, run, middleware, os managed by you
+              os, virtualization,servers, storage, networking - managed by others(AWS)
+        PaaS: Applications, Data is manage by us
+              Runtime, Middleware, OS, Virtualization, Servers, Storage, Networking - managed by others(AWS)
+        SaaS: Everything is managed by AWS
+    Example of cloud computing
+        Iaas:
+            Amazon EC2(on AWS)
+            GCP, Azure, Rackspace, Digital Ocean, Linode
+        Paas:
+            Elastic BeanStack(on AWS)
+            Heroku, Google App Engine (GCP), windows Azure(Microsoft)
+        Saas:
+            Many AWS services (ex: rekognition for machine learning)
+            Google apps(Gmail), Drop Box, Zoom
+### Pricing of the cloud - overview
+    Aws has 3 pricing models, following pay-as-you-go model
+        Compute: pay for the compute time
+        Storage: pay for data stored in the cloud
+        Data transfer OUT of the cloud: data transfer IN is free
+        Solves the expensive issue of traditional IT
+        
+    
         
         
     
