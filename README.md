@@ -121,8 +121,9 @@
         AWS avaliablity zones
         AWS Data Centers
         AWS Edge locations/points of presence
-    How to AWS region?
+    How to choose an AWS region?
     If you want to lauch a application in which region will you lauch?
+    
         
         
     
