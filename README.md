@@ -206,6 +206,20 @@
     Ans: Hybrid cloud
     11) What is NOT authorized to do on AWS according to the AWS Acceptable Use Policy?
     Ans: Run analytics on stolen data
+## IAM - Identity and Access Management
+    It is a Global service
+    Root user is created by default, shouldnt be used or shared
+    Users are people within your organization and can be grouped
+    Groups contains only users not other groups
+    Users doesnot have to belong a group and user can belong to muliple groups
+    Example:
+        suppose there is a company of six people alice, bob, charles, david, edward, fred
+        since alice, bob, charles are developers we can group together as developers
+        since david, edware work together in operations we can group them together as operations
+        fred works individual doesnot belong to any group
+        Suppose charles and david together they can be group as audit team
+
+    
     
     
 
