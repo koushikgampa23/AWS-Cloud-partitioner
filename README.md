@@ -123,6 +123,94 @@
         AWS Edge locations/points of presence
     How to choose an AWS region?
     If you want to lauch a application in which region will you lauch?
+        Compliance with data governance and legal requirements: Data leaves a region without your explict permission
+        Proximity to customers: reduced latency
+            if the majority of your application users are from america, its better to deploy in america or near by areas that redues the latency
+        Avaliable Services within a region: new services and new features are not available in all regions.
+        Pricing: Pricing varies from region to region and is transparent in the service pricing page.
+    Aws avaliablity zones:
+        Each region has max availablity zones(min is 3, max is 6)
+        Each avaliablity zone is one or more discrete data centers with redundent power, networking and connectivity.
+        In simple terms a availibity zone can be a combination of 1 or more data centers that has constant power, networking and connectvity
+        They are seperate from each other, so that they are isolated from each other.
+        They are connected with high bandwidht, ultra-low latency networking.
+    Aws points of presence
+        Aws 400+ points of presence in 90+ cities across 40+ countries
+        content is delivered to end user with low-latency
+### Glimpse of AWS console
+    AWS Global services
+        Identity and access management(IAM)
+        Route S3(DNS service)
+        CloudFront(Content Delivery Network)
+        WAF(Web application firewall)
+    Most AWS services are region scoped
+        Amazon EC2(Iaas)
+        Elastic Bean(Paas)
+        lambda(Faas) #function as a service
+        Rekognition(Saas)
+    There are some service like Route S3 this service region is global we cant modify region, where aws ec2 service we have option to select a region.
+    To see detailed list of service that are offered in each region we can
+        search aws global infrastructure -> click on regions and AZs tab -> navigate below and click on See detailed list of offerings at all AWS locations link -> click on region you want
+## Shared Responsibility model
+    Customer - you has the customer your are responsible for the security IN the cloud
+               that includes how are configuring security, firewall, os and everything
+    AWS - Responsible for the security OF the cloud
+          All the infrastructure, hardware, software, there own internal security
+    ![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20263094](https://github.com/user-attachments/assets/1118b306-a731-4522-a507-6596f0bb0a5a)
+
+## Quiz
+    1) Which Global Infrastructure identity is composed of one or more discrete data centers with redundant power, networking, and connectivity, and are used to deploy infrastructure?
+        a) edge locations b) availibity zones c) Regions
+        Ans: b
+    2) Which of the following is NOT one of the Five Characteristics of Cloud Computing?
+        a) rapid elasticity and scalability b) multi tenancy and resource pooling c) Dedicated agent support to help you deploy applications d) on demand self service
+        Ans: C
+    3) Which are the 3 pricing fundamentals of the AWS Cloud?
+        a) compute, storage and data transfer inside the AWS cloud
+        b) compute, networking and data transfer our of the aws cloud
+        c) compute, storage and data transfer out of the aws cloud
+        d) Storage, functions and data transfer in the aws cloud
+        Ans: C
+    4) Which of the following options is NOT a point of consideration when choosing an AWS Region?
+        a) Compliance with data governance
+        b) latency
+        c) capacity avalibility
+        d) Pricing
+        Ans C
+        Capacity is unlimited in the cloud, you do not need to worry about it. The 4 points of considerations when choosing an AWS Region are: compliance with data governance and legal requirements, proximity to customers, available services and features within a Region, and pricing.
+    5) Which of the following is NOT an advantage of Cloud Computing?
+        a) CAPX for operational expanse
+        b) Train your employees less
+        c) Go global in minutes
+        d) stop spending money on running and maintaing data centers
+        Ans: B
+        You must train your employees more so they can use the cloud effectively.
+    6) AWS Regions are composed of?
+        a) one or more discrete data centers
+        b) two or more edge locations
+        c) Three or more availablity zones
+        Ans: C
+        avalibity zones are composed of one or more discrete data centers, and Aws regions is composed of three or more avaliability zones 
+    7) which of the following services as global scope
+        a) Ec2 b) IAM c) lamda d) rekognition
+        Ans: B
+    8) What is cloud computing?
+        a) Rapidly develop, test and deploy applications
+        b) Automatic and quick ability to acquire resource as you need them and release resources when no longer need them
+        c) on deman avalibilty of computer system resources, espically data storage, and compute power, without direct active management by the user
+        d) change resource types when needed
+        Ans: C
+    9) What defines the distribution of responsibilities for security in the AWS Cloud?
+        Ans: The shared reponsibilty Model
+    10) A company would like to benefit from the advantages of the Public Cloud but would like to keep sensitive assets in its own infrastructure. Which deployment model should the company use?
+    Ans: Hybrid cloud
+    11) What is NOT authorized to do on AWS according to the AWS Acceptable Use Policy?
+    Ans: Run analytics on stolen data
+    
+    
+
+    
+    
     
         
         
