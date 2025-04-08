@@ -270,6 +270,13 @@
         Resource: list of resources to which the actions applies to
         Condition: conditions for when this policy is in effect(optional)
 ![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_26623452](https://github.com/user-attachments/assets/52b5b4ab-222d-4eca-8fed-96c1d49002d2)
+### IAM policies handon Permission Add and delete(practical)
+    Login as root user and IAM user, one in browser and one in private window.
+    Remove administrative access of IAM user from root user account and refresh the IAM User account and try to access the IAM dashboard, we get an error you dont have enough permissions.
+    Instead of adding user to admin group this time try adding attach policy directly option and select IAMReadOnlyAccess
+    Now the IAM user cannot delete the user he only has read only access
+    
+    
     
 
             
