@@ -218,6 +218,17 @@
         since david, edware work together in operations we can group them together as operations
         fred works individual doesnot belong to any group
         Suppose charles and david together they can be group as audit team
+### IAM permissions
+    Why do we need users and groups in aws?
+        Because we want to allow them to use our aws account with least privileged access.
+    To allow them to use we need to give permissions
+    Users or Groups can be assigned JSON documents called policies
+    These policies define the permissions of the users.
+    In AWS you apply the least privilege principle: dont give more permission than user needed.
+    policies
+    ![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20054584](https://github.com/user-attachments/assets/b4e13352-87ac-4fa4-8d99-9825577281a4)
+        
+    
 
     
     
