@@ -227,6 +227,32 @@
     In AWS you apply the least privilege principle: dont give more permission than user needed.
     policies
     ![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20054584](https://github.com/user-attachments/assets/b4e13352-87ac-4fa4-8d99-9825577281a4)
+    Practical
+        Aws console -> Iam -> User -> Create User
+        on the top right if i see it is global no need to select the region, that means if you create a iam user he can be accesible across all regions
+### Creating IAM User
+    Navigate login to AWS console -> search IAM service -> Users -> Create User
+    page1:
+        username - koushik
+        check the provide access to the aws management console
+        Select i want to create Iam User
+        auto generate password or custom password anything
+        Users must create a new password at next signin check it
+    Page2:
+        click on create group button
+        group name
+        add permission policy to the group
+        select Administrator access
+        click next
+        check box the group and create user
+        copy the credentials 
+    Login Iam user
+        Go to IAM dashboard
+        on the right side copy the signurl for iam users
+        It is recommended to create a alias name to customize the url
+        paste the url in the private window and enter the credentials
+        Now iam able to login as Iam user
+    
         
     
 
