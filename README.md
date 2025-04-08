@@ -269,7 +269,7 @@
         Action: list of actions this policy allows or denies
         Resource: list of resources to which the actions applies to
         Condition: conditions for when this policy is in effect(optional)
-    ![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_26623452](https://github.com/user-attachments/assets/52b5b4ab-222d-4eca-8fed-96c1d49002d2)
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_26623452](https://github.com/user-attachments/assets/52b5b4ab-222d-4eca-8fed-96c1d49002d2)
     
 
             
