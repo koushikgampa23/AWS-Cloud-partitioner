@@ -252,7 +252,27 @@
         It is recommended to create a alias name to customize the url
         paste the url in the private window and enter the credentials
         Now iam able to login as Iam user
+### IAM policy inheritance
+    alice, bob, charlies - developers group
+    David, edwin - testing group
+    fred - individual
+    charlies, David are also from operational group
+    That means charlies will have polices from both developers group and operational groups
+### IAM Policy Structure
+    Version: Policy language verison, always include "2012-10-17"
+    Id: Identifier for the policy (optional)
+    Statement: One or more individual statement(required)
+    Statement consists of:
+        sid: an identifier for the statement(optional)
+        Effect: whether the statement allows or denies the access(Allow, Deny)
+        Principal: account/user/role to which this policy applied to
+        Action: list of actions this policy allows or denies
+        Resource: list of resources to which the actions applies to
+        Condition: conditions for when this policy is in effect(optional)
+    ![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_26623452](https://github.com/user-attachments/assets/52b5b4ab-222d-4eca-8fed-96c1d49002d2)
     
+
+            
         
     
 
