@@ -275,6 +275,100 @@
     Remove administrative access of IAM user from root user account and refresh the IAM User account and try to access the IAM dashboard, we get an error you dont have enough permissions.
     Instead of adding user to admin group this time try adding attach policy directly option and select IAMReadOnlyAccess
     Now the IAM user cannot delete the user he only has read only access
+#### Create policies
+    Navigate polices -> create policy
+    Page1:
+        select service IAM
+        use search or open dropdown options and add
+        add listuser, getuser
+        Resources - all
+        create policy
+    Page2:
+        Policy Name BasicUser
+    Now open user delete the previous polices, click on add permission -> choose add permission -> attach policies directly
+    Search for BasicUser and add permission to the user
+#### IAM Password policy
+    Strong password = high security for the account
+    In Aws you can setup password policy:
+        set a minimum password length
+        Require specific character types:
+            including uppercase letters
+            lowercase letters
+            numbers
+            non-alphanumeric characters
+        Allow all IAM users to change their own passwords
+        Requires users to change password after some time(password expiration)
+        Password reuse
+### Multi factor authentication - MFA
+        Users have access to your accounts and can possibliy change or delete your resources in AWS account
+        You want to protect your root users and IAM users
+        MFA = password you know + security device you own
+        Main benefit of MFA
+            if a password is stolen or hacked, the account is not compromized.
+    MFA devices options in AWS
+        Virtual MFA device
+            Google Authenticator (both apps support of  multiple tokens in a single device)
+            Authy
+        Universal 2nd Factor(U2F) Security Key
+            Yubikey(looks like pendrive a physical machine)
+            - support for multiple root and IAM users with a single security key
+        Hardware key Fob MFA device
+            -looks like a pacer and has password in it.
+#### Hands on password policy
+    Add password policy: Navigate IAM -> Account settings -> Edit password policy
+    Add MFA to account: Click on user name -> click Security credentials -> Now you can assign MFA
+### How to access your aws account?
+    3 options available:
+        AWS console management(protected by password+ MFA)
+        AWS command line interface(CLI): protected by access key
+        AWS software Developer kit(SDK): -for code protected by accesskey
+    Access keys are generated through AWS console
+    Users manage there own access keys
+    Access keys are secret, just like password, dont share with any one.
+    Access Key ID - username
+    Secret Access Key - password
+#### Whats the AWS cli?
+    A tool that allows you to interact with the AWS using commands in comand line
+    Direct access to the public API's of AWS services
+    You can develop scripts to manage your resources
+#### What is AWS SDK
+    AWS Software Developement Toolkit(SDK)
+    Language specific API(set of libraries)
+    Enables you to access and manage AWS services programatically
+    we are not using it in a terminal, but we are embedding within our application
+    Supports - Javascript, Ruby, python, java, c++, Node js
+        Mobile SDks(android, ios)
+        Iot Devices(Embedded C, Arduino)
+### AWS CLI setup
+    Step1) Install AWS CLI
+        Search for AWS CLI for windows and open a aws docs website and download msi version for windows
+        Check using aws --version
+    Step2) Generate access key
+        navigate to create access key
+        click on username -> click security crendentials -> scroll down -> click on generate accesskey
+    Step3) Click on command line interface, check the i understand box
+        Click on generate accesskey
+        This is the only time where we can be able to access it, make sure to download
+    Step4) use this cmd
+        aws configure 
+        enter credentials
+    Step5) Verify it
+        aws iam list-users
+    Step6) Optional try removing Administrative access to the IAM user, try aws iam list-users it wont work it shows you dont have enough permissions to do this.
+### AWS cloud shell
+    It is an alternative for using AWS CLI instead of running on the computer we can open the cloud shell in the aws console portal
+    Cloud shell is not available in all regions make sure to use the proper region if i want to use
+    if i use ls it shows nothing
+    we can use echo "test" > demo.txt(it will a file demo.txt with text test)
+    even if i restart the cloud shell the files will stay there
+    You can even download the files
+    Click on actions -> click on download file -> enter file location, then we can download it
+    
+    
+    
+    
+        
+    
     
     
     
