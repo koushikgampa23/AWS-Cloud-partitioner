@@ -365,6 +365,39 @@
     Click on actions -> click on download file -> enter file location, then we can download it
 #### IAM Roles for services
     Some AWS services will need to perform actions on your behalf
+    To do so, we will assign permissions to AWS services with IAM Roles
+    Common Roles:
+        EC2 instance roles
+        lambda function roles
+        Roles for CloudFormation
+    In simple terms for EC2
+        Allows Ec2 instance to perform AWS services on behalf of you
+    HandsOn:
+        navigate IAM -> Roles -> Create Roles -> Click AWS service -> Use Case -> EC2
+        Page2: Add policy like AdministrativeAccess or IAMReadOnlyAccess
+        Add role name and click on create role
+### IAM Security Tools
+    We can generate 
+    IAM credentials Report(account-level)
+        A report that lists all your accounts users and the status of their various credentials
+    IAM Access Advisor(user-level)
+        Access Advisor shows the service permissions granted to a user and when those services were last accessed.
+        You can use this to revise the permissions
+    Handson:
+        IAM credentials Report: navigate IAM -> scroll down -> click on credentials report -> download credential report
+        Access Advisor: navigate IAM -> Users -> Click on any user -> Last Accessed tab
+### IAM Best practises
+    Dont use root account except for aws account setup
+    One physical user = one AWS account
+    Assign users to groups and assign permissions to groups
+    Create a strong password policy
+    Use and enforce the use of MFA
+    Create and use Roles for giving permissions to AWS services
+    Use AccessKeys for programmatic Access(CLI/SDK)
+    
+        
+    
+        
     
     
     
