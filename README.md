@@ -363,6 +363,9 @@
     even if i restart the cloud shell the files will stay there
     You can even download the files
     Click on actions -> click on download file -> enter file location, then we can download it
+#### IAM Roles for services
+    Some AWS services will need to perform actions on your behalf
+    
     
     
     
