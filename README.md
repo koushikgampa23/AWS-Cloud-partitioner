@@ -394,6 +394,57 @@
     Use and enforce the use of MFA
     Create and use Roles for giving permissions to AWS services
     Use AccessKeys for programmatic Access(CLI/SDK)
+    Audit permissions of your account using IAM Credentials Report and IAM Access Advisory
+    Never share IAM users and accesskeys
+### Shared Responsibility Model for IAM
+    Aws responsible: Infrastructure(global network security), Configuration and vulnerability analysis, Compliance validation
+    You: Users, Groups, Polices, management and monitoring, Enable MFA on all devices, Use IAM tools to assign permissions, Analyze access patterns and revise the permissions
+### IAM Summary
+    Users: mapped to a physical user, has a password for AWS console
+    Groups: Groups only contain users
+    Polices: JSON documents that outlines permissions of users or groups
+    Roles: for EC2 instance or AWS Services
+    Security: MFA + Password Policy
+    AWS CLI: manage your AWS service using command line
+    AWS SDK: mangage your AWS services using programming language
+    Access Key: Access Aws using cli or SDK
+    Audit: IAM Credentials Report and IAM Access Advisor(Lat access)
+### Quiz
+    What is a proper definition of IAM Roles?
+        An IAM entity that defines set of permissions for making AWS service request, that will be used by AWS Services
+    Which answer is incorrect regarding IAM User?
+        a)IAM Users can belong to multiple groups
+        b)Iam users dont have to belong to a group
+        c)IAM users have policies assigned to them
+        d)IAM users access AWS with the root account credentials
+        Ans: D IAM Users access AWS using a username and a password.
+    Under the shared responsibility model, what is the customer responsible for in IAM?
+        a) Infrastructure security
+        b) Compliance validation
+        c) configuration and vulnerability analysis
+        d) Assigning users proper IAM polices
+        Ans: D
+### AWS Budget Setup
+    Search billing and cost management
+    if you see all the access denied for IAM User
+    Login to root account 
+    Search billing and cost management, now click on the username -> account -> scroll down and edit IAM user/role access to billing information
+    Give access to IAM User, Now IAM user can access billing details
+    How to check bills
+        navigate Billing and cost management -> Bills -> search by month -> search by service
+    Click on free tier to check what is free and how much did we we utilize
+    Now Click on Budget -> Click on create budget -> use template(simplified), Zero spend budget, create budget
+    Best to see the expenses 1)Bill 2) Free tier checks
+## Amazon EC2
+    Ec2 it is the most popular AWS offering
+    EC2 = Elastic Compute Cloud = Infrastructure as a Service
+    It mainly consists of in the capability of:
+        Returing Virtual Machine(EC2)
+        Storing data on virtual drives(EBS)
+        Distributing load across machines(ELB)
+        Scaling the services using auto scaling group(ASG)
+    knowing EC2 is the fundamental to understand how cloud works
+    
     
         
     
