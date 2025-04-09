@@ -444,6 +444,17 @@
         Distributing load across machines(ELB)
         Scaling the services using auto scaling group(ASG)
     knowing EC2 is the fundamental to understand how cloud works
+### EC2 Sizing and configuration options
+    operating system(OS): Linux, Windows, or Mac Os
+    how much compute power and cores (CPU)
+    how much randam access memory (RAM)
+    How much storage space:
+        Network attached (EBS & EFS)
+        hardware(EC2 instance store)
+    Network card: speed of the card, public Ip address
+    Firewall rules: security group
+    Bootstrap script: EC2 User data
+    
     
     
         
