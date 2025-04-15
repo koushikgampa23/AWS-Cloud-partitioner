@@ -454,6 +454,8 @@
     Network card: speed of the card, public Ip address
     Firewall rules: security group
     Bootstrap script: EC2 User data
+    It is possible to bootstrap our instance using an ec2 user data scripts
+    bootstrapping means lauching commands when a machine starts
     
     
     
