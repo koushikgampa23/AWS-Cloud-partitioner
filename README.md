@@ -456,6 +456,40 @@
     Bootstrap script: EC2 User data
     It is possible to bootstrap our instance using an ec2 user data scripts
     bootstrapping means lauching commands when a machine starts
+    The script only run once at the instance first start
+    EC2 user data used to automate boot tasks such as:
+        Installing updates
+        Installing software
+        Downloading common files from internet
+    The Ec2 user data scripts run with the root user
+    EC2 instance types
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055638](https://github.com/user-attachments/assets/d536b093-1543-4b68-8ef4-dc536ace206e)
+    t2.micro is part of aws free tier(upto 750 hours per month)
+### EC2 handson
+    Launching an EC2 instance running linux
+    Navigate EC2 -> Dashboard -> instances -> lauch instances
+    Add name: first_instance
+    os: amazon_linux
+    Architecture: 64 bit
+    instance type: t2.micro (1cpu, 1gb ram eligible for free tier)
+    keyvalue: click on create keyvalue, name: ec2 tutorial, algorithm: rsa, file type: pem, download the pem file
+    firewall security: allow HTTP traffic
+    In the advanced details: scroll down and add this code in user data box
+        #!/bin/bash
+        # Use this for your user data (script from top to bottom)
+        # install httpd (Linux 2 version)
+        yum update -y
+        yum install -y httpd
+        systemctl start httpd
+        systemctl enable httpd
+        echo "<h1>Hello World from $(hostname -f)</h1>" > /var/www/html/index.html
+    This script will be exectuted when the instance started and it will run once once at the end of the lifecycle.
+    It will update, install httpd webserver, create a index.html file
+    We can start and stop the instances, The public ip address will be changed when ever we stop and start the instance, but the private ip address will not change
+    
+    
+
+    
     
     
     
