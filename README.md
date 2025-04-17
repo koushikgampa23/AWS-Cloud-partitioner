@@ -486,6 +486,90 @@
     This script will be exectuted when the instance started and it will run once once at the end of the lifecycle.
     It will update, install httpd webserver, create a index.html file
     We can start and stop the instances, The public ip address will be changed when ever we stop and start the instance, but the private ip address will not change
+### AWS instance types
+    AWS instance have this naming conventions
+        m5.2xlarge
+        m: instance class
+        5: generation
+        2xlarge: size within the instance class
+    General Purpose:
+        Great for web servers or code repositories
+        Balanace Between:
+            Compute
+            Memory
+            Networking
+        t2.micro is the general purpose instance
+    Compute optimized:
+        Great for compute instance tasks that requires high performance processors:
+            Batch processing workloads
+            Media transcoding
+            High performance web servers
+            High performance computing(HPC)
+            Scientific modeling and machine learning
+            Dedicated Gaming servers
+            C series(Cpus)
+    Memory Optimized:
+        Fast Performance for workloads that processes large data sets in memory
+        Use Cases:
+            High Performance, relational/non-relational databases
+            Distributed web scale stores
+            In memory databases optimized for Business Intelligence(BI)
+            Applications performing realtime processing of big unstructured data
+            R series(Ram)
+    Storage Optimized
+        Great for storage instensive tasks that require high, sequential read and write access to large data sets on local storage
+        Use Cases:
+            high frequency online transcation processing(OLTP) systems
+            Relational and non-relational databases
+            Cache for in memory database(for example redis)
+            Data warehousing applications
+            Distributed file system
+            D series(Disk)
+### Security Groups
+    Security Groups are the fundamental of network security in AWS
+    They control how traffic is allowed in or out of ec2 instance
+    security groups only contains allow rules
+    Security groups rules can reference by Ip or security group
+    They control inbound traffic and outbound traffic
+    They are acting as a firewall on EC2 instances
+    They regulate:
+        Access to ports
+        Authorized IP ranges - IPV4 and IPV6
+    Can be attached to multiple instances and an instance can have multiple security groups
+    Locked down to a region/ VPC combination
+    Does lives outside EC2 instance and if traffic is blocked the EC2 instance wont see it.
+    Its good to maintain seperate security group for SSH access.
+    if your application is not accessible(time out), then its a security group issue
+    if your application gives connection refused error, then its a application error or its not launched
+    By default all inbound traffic rules is blocked
+    By default all outbound traffic is authorized
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055658](https://github.com/user-attachments/assets/edfd9c54-0df4-4665-b761-3fa115ca787d)
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055658 (1)](https://github.com/user-attachments/assets/2c756c79-6bda-437b-8a3d-e1b5c597f59d)
+### Classic Ports to know
+    22=SSH (Secure shell) - login to EC2 instance
+    21=FTP (File Transfer Protocal) - upload files into a file share
+    22=SFTP(Secure) - upload files using SSH
+    80=HTTP - access unsecured websites
+    443=HTTPS - access secured websites
+    3389=RDP(Remote Desktop Protocal) - login into windows instance, 22 - login into linux instance
+    Handson Security Groups
+        EC2 -> Network and Security -> Security Groups
+        Click on create security group
+        add in Inbound rules http source anywhere
+        add in outbound rules allow traffic
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055692](https://github.com/user-attachments/assets/156931ce-7b71-4cf2-a89a-e27835e1296b)
+### SSH setup
+    Excute this command in cmd
+        ssh (if command not found then we have to use putty since your windows dont have ssh)
+        
+
+    
+
+    
+    
+    
+
+
     
     
 
