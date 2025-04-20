@@ -561,7 +561,20 @@
 ### SSH setup
     Excute this command in cmd
         ssh (if command not found then we have to use putty since your windows dont have ssh)
+    SSH is one of the most important function, that allows you to control remote machine, all using command line
+    How to ssh into your EC2 instance windows
+        After creating EC2 instance we had downloaded the pem file, go to that location
+        Now use this command 
+            ssh -i <pemifile> ec2-user@<ec2-instance-public-ipv4-ipaddress>
+            ssh -i '.\ec2 tutorial.pem' ec2-user@3.82.146.18
+        if promted to enter yes
+        Now we are in ec2 instance on windows machine
+    Alternative way is use browser
+        on the instance click on connect
+        it will automatically detect ec2-user
+        if i click on connect it will upload a temporary ssh key and establish a connection with it.
         
+    
 
     
 
