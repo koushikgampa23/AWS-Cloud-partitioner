@@ -573,6 +573,110 @@
         on the instance click on connect
         it will automatically detect ec2-user
         if i click on connect it will upload a temporary ssh key and establish a connection with it.
+### Attach IAM role to EC2 instance
+    In the aws console check wheather we had attached any IAM role to the instance or not.
+        EC2 -> instances -> instance1 -> In the security tab check IAM role
+    if IAM role is not attached then click on 
+        actions -> security -> modify Iam role -> Add iam role -> Choose EC2Demo
+    If i havent created iam role for ec2 follow this
+        IAM -> Roles -> create Role -> choose Trusted entity type, Use case: EC2 -> permission policy: IAMReadOnlyAccess -> EC2Demo
+    In the EC2 instance try this command
+        aws iam list-users
+### EC2 Purchasing Options
+    On-demand Instance - short workload, predictable pricing, pay by second
+    Reserved(1 & 3 years)
+        Reserved instances - long workloads
+        Convertable Reserved instances - long workloads with flexible instances
+    Savings Plan(1 & 3 years) - commitment to an amount of usage, long workloads
+    Spot instances - short workloads, cheap, can lose instances(less reliable)
+    Dedicated Hosts - book an entire physical server, control instance placement
+    Dedicated Instances - no other customer will share your hardware
+    Capacity Reservations - reserve capacity in a specific AZ for any duration
+### EC2 on demand
+    Pay for what you use
+        linux or windows - billing per second, after first minute
+        All other operating system - billing per hour
+    Has highest cost but no upfront payment
+    No long-term commitment
+    Recommended for short-term and un-interrupted workloads, where you cant predict how your application will behave
+### Reserved Instances
+    Up to 72% discount compared to ondemand 
+    you reserve a specific instance attributes(Instance type, Region, Tenancy, OS)
+    Reservation period - 1 year(+discount) or 3 years(+++discount)
+    Payment options - No upfront, partial upfront(++), All upfront(+++)
+    Reserved instance scope - Regional or zonal (reserve capacity in AZ )
+    Recommended for steady-state usage applications(think database)
+    You can buy or sell reserved instances in the market place
+    Convertible Reserved instances
+        Can change the ec2 instance type, instance family, OS, scope and tenancy
+        up to 66% discount
+### Ec2 Saving plan
+    Get a discount on long term usage(upto 72% - same as RI)
+    Commit to certain type of usage(10$/hour for 1 or 3 years)
+    Usage beyond EC2 Savings Plans is billed at the on-demand price
+    Locked at a specific instance familiy & AWS region(eg i want M5 instance at us-east-1)
+    Flexible across:
+        Instance Size(m5.xlarge or m5.2xlarge)
+        OS(linux or windows)
+        Tenancy(Host, Dedicated, Default)
+### EC2 spot instances
+    can get a discount upto 90% as compared to ondemand
+    Instances that you can lose at any point of time if your max price is less than the current sport price
+    The MOST efficient instance in AWS
+    Useful for workloads that are resilent to failure
+        Batch jobs
+        Data Analysis
+        Image Processing
+        Any distributed workloads
+        workloads with a flexible start and end time
+    Not suitable for critical jobs or databases
+### EC2 Dedicated Hosts
+    A physical server with EC2 instance capacity fully dedicated to your use.
+    allows you use complience requirements and use your exisiting server-bound software licenses
+    Purchasing Options
+        Ondemand - pay per second for active Dedicated host
+        Reserved - 1 or 3 years(No upfront, parital upfront, all upfront)
+    This is the most expensive one
+    Useful for softwares that has a complicated licensing model(BYOL - Bring Your Own Licence)
+    Or the companies that have strong regulatory or complience needs
+### EC2 dedicated Instances
+    Instances that run on hardware that are dedicated to you.
+    May share hardware with other instances in same account
+    No control over instance placement(can move hardware after they stop/start)
+### Difference between dedicated hosts and dedicated instances
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055756](https://github.com/user-attachments/assets/62aed980-d0ec-4598-b47d-45c2fe072c74)
+### Ec2 Capacity Reservations
+    Reserve on-demand instances capacity in a specific region for any duration
+    You always had access to Ec2 capacity when you need it.
+    No time commitement(Create/Cancel anytime), no billing discount
+    Combine with regional reserved instances and savings plans to benefit from billing discounts
+    your charged with on-demand price whether you run instances or not
+    suitable for short time, uninterupted workloads that needs to be in a specific Az
+### Which type of instance i choose
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055756 (1)](https://github.com/user-attachments/assets/b64e9df1-d4bf-4d99-90c9-6fa8718d5aa1)
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055756 (1)](https://github.com/user-attachments/assets/b307e2c7-aa47-4d1a-bd15-6649420b6e62)
+### AWS charges for IPv4 address
+    Starting Feb 1st 2024, there is a charge for all the public IPv4 address created in your account
+    0.005$ per hour of public IPv4(~3.6$ for month)
+    For new accounts in aws, you have 1 year tier for the EC2 service: 750 hours of public Ipv4 for the first 12 months
+    what about IPv6?
+        Unfortunatly many of the Internet service provides(ISP) around the world doesnot support IPv6.
+    IPv6 there are no charges, since aws want to push IPv6 it started introduced charges on Ipv4
+    How to trouble shoot charges?
+        Go into AWS bill
+        Look into AWS public Ip insights service
+        Hands on:
+        billing and cost management -> Bills
+        
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_46796935](https://github.com/user-attachments/assets/6dc55a20-569b-42de-bc6a-d1d4370dba1e)
+
+
+
+
+
+    
+        
+    
         
     
 
