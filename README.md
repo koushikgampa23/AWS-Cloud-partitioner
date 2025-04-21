@@ -669,6 +669,66 @@
         billing and cost management -> Bills
         
 ![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_46796935](https://github.com/user-attachments/assets/6dc55a20-569b-42de-bc6a-d1d4370dba1e)
+### Create public Ip Address
+    Search for IPAM -> Amazon VPC IP Address Manager -> IPAM's -> Create IPAM -> Enable Allow VPC IP address Manager -> Select Region -> Create IPAM
+    In the IPAM -> Public Ip insights
+### Shared responsibility model of EC2
+    managed by aws:
+        Infrastructure (global network security)
+        Isolation on physical hosts
+        Replacing faulty hardware
+        Compliance validation
+    Managed by user:
+        Security Group rules
+        Operating system patches and updates
+        Softwares and utilies installed on the EC2 instance
+        IAM roles assigned to EC2 and IAM user access management
+        Data security on your instance
+### EC2 section - Summary
+    EC2 instance: AMI(OS) + Instance Size(CPU+RAM) + Storage + Security Groups + EC2 User Data(Bootstrap scripts that run only one once when ec2 instance created)
+    Security Group - Firewall attached to EC2 instance
+    EC2 user data - Script launched at the first start of an instance
+    SSH - start a terminal into our EC2 instances
+    Ec2 instance role : link to IAM roles
+    Purchasing options: On demand, Spot, Reserved(standard+convertable), Dedicated host, Dedicated instance
+### Quiz
+    1.Which EC2 Purchasing Option can provide the biggest discount, but is not suitable for critical jobs or databases?
+        Spot Instance
+    2.Which network security tool can you use to control traffic in and out of EC2 Instances?
+        a.Network Access Control List(NACL)
+        b.Identity and access Management(IAM)
+        c.GuardDuty
+        d.Securtiy Groups
+        ans:Security Groups
+    3.Under the Shared Responsibility Model, who is responsible for operating-system patches and updates on EC2 Instances?
+        Customer
+    4.How long can you reserve an EC2 Reserved Instance?
+        a.1 or 3 years
+        b.anytime between 1 and 3 years
+        ans:a,1 year or 3 years terms are available for EC2 Reserved Instances.
+    5.A company would like to deploy a high-performance computing (HPC) application on EC2. Which EC2 instance type should it choose?
+        Compute Optimized EC2 instances are great for compute-intensive workloads requiring high performance processors, such as batch processing, media transcoding, high performance web servers, high performance computing, scientific modeling & machine learning, and dedicated gaming servers.
+    6.Which of the following is NOT an EC2 Instance Purchasing Option?
+        a.Reserved Instance
+        b.spot instance
+        c.on-demand instance
+        d.connect instance
+        ans:d.connect instance
+    7.Which EC2 Purchasing Option should you use for an application you plan on running on a server continuously for 1 year?
+        a.Reserved instances
+        b.spot instances
+        c.ondemand instances
+        d.convertible instances
+        ans:a.Reserved instances
+## EC2 Instance Storage Section
+### EBS overview
+    EBS - An EBS(Elastic Block storage) volume is a network drive you can attach to your instances while they run
+    It allows your instances to persist data, even after its termination
+    
+        
+    
+    
+    
 
 
 
