@@ -724,6 +724,63 @@
 ### EBS overview
     EBS - An EBS(Elastic Block storage) volume is a network drive you can attach to your instances while they run
     It allows your instances to persist data, even after its termination
+    They can be mounted to one instance at a time(at the CCP level)
+    They are bound to a specific availablity zone
+    
+    Analogy: Think of them as "network USB stick"
+    Free Tier: 30 GBS of free EBS storage of type general purpose(SSD) or magnetic per month
+
+    Note: CCP: certified cloud practionior - one EBS can be mouted to only one EC2 instance
+    Associate level(Solutions Architect, Developer, SysOps): "multi-attach" feature for some EBS
+### EBS volume
+    It is a network drive(not a physical drive)
+        It uses network to communicate with ec2 instance, which means there might be a bit of latency
+        It can be detached from an EC2 instance and attached to another instance quickly
+    Its locked to an avaliablity zone(AZ)
+        An EBS volume in us-east-1a cannot be attached to us-east-1b
+        To move a volume across, you first need to snapshot it.
+    Have a provisioned capacity(size in GBs and IOPS)
+        You get billed for all the provisioned capacity
+        you can increase the capacity of the drive over the time
+    One or more EBS volumes can be attached to one instance
+    Its not mandatory for EBS volume to attach to a EC2 instance
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055762](https://github.com/user-attachments/assets/758efe98-c33c-481e-b3ba-9c0f607dcf35)
+### EBS delete on termination attribute
+    Controls the EBS behaviour when an EC2 instance terminates
+        By default the root EBS volume is deleted (attribute enabled)
+        By default, any other EBS volumes attached is not deleted(attribute disabled)
+    This can be controlled by AWS console/AWS cli
+    Use case: preserve root volume when instance gets terminated
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055762 (1)](https://github.com/user-attachments/assets/55e0281e-40f3-4914-9540-6f85f478a204)
+### EBS handson
+    Create a EBS storage of 2gb ssd
+    Step1) Check the instance region of EC2 instance
+        EC2 -> instances -> Networking -> Availibility Zone(AZ)
+        In the storage tab check for any EBS attached, also check for Delete on Termination, we can see root will be delete on termination enabled
+    Step2) Create a volume
+        EC2 -> volumes -> create volume -> select gp2, 2gb, Enter same availibilty zone of ec2 instance -> create volume
+    Step3) Attach it on EC2 instance
+        Actions -> attach volume -> Select instance -> attach volume
+    To disable delete on termination for root
+    Step1) while creating EC2 instance, while selecting storage click on advanced tab and disable the delete on termination the root EBS
+### EBS snapshot
+    Make a backup(snapshot) of your EBS volume at any point in time
+    Not necessary to detach volume to do snapshot, but recommended
+    can copy snapshot across AZ or region
+    EBS snapshot features:
+        EBS snapshot archive
+            Move a snapshot to an archieve tier which is 75% cheaper
+            takes within 24-72 hours for restoring the archive
+        Recyle Bin for EBS snapshot
+            Setup rules to retain deleted snapshots so you can recover them after an accidental deletion
+            Specify retenion (from 1day to 1year)
+            
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055798](https://github.com/user-attachments/assets/e9748c9c-7c6f-428c-a2a1-dd1933a1a604)
+
+
+
+
+    
     
         
     
