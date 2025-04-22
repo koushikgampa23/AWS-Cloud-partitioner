@@ -821,6 +821,56 @@
             In the advanced tab under add user data scripts there
             echo "<h1>Hello World from $(hostname -f)</h1>" > /var/www/html/index.html
         now copy paste the public ip in the browser this will work
+### EC2 image builder
+    Used to automate the creation of Virtual machines or container images
+    Automate the creation, maintain, validate and test EC2 AMIs
+    Can be run on schedule (weekly, where packages are updated,etc...)
+    Free Service(only need to pay for the underlying service)
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_24682456](https://github.com/user-attachments/assets/3847c392-50e2-4b68-bd41-b571b625acba)
+### EC2 Instance Store
+    EBS volumes are network drives with good but "limited" performance
+    if you need a higher performance hardware disk, use EC2 Instance store
+    Better I/O performance
+    Ec2 instance store lose their storage if they're stopped
+    It is not suitable for durable, long term to store your data
+    Good for buffer/cache/scratch data/temporary content
+    Risk of data loss if hardware fails
+    Backups and replications are your responsibility
+    
+    for long term storage EBS is the best one we can use
+    Comparision of EC2 instance and EBS
+    IOPS(input output per second)
+    look at i3.16xlarge 3.3 million(instance store) 1.4 million (EBS)
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055816](https://github.com/user-attachments/assets/3d2f719d-3ebd-4428-a476-b1032517c33d)
+### Elastic File System(EFS)
+    It is a Managed NFS(Network file system) that can be mounted to 100s of EC2 instances
+    The idea and benefit is that it can be mounted to 100s of instances at a time
+    Before we had EBS volume that is attached to only one instance at a time, now EFS can be attached to 100s of EC2 at a time
+    so that makes shared network file system
+    EFS only works with Linux Ec2 instances in multiple AZ
+    Highly available, scalable, expensive(3x price of gp2), pay per use, no capacity planning(if you store 20gb data then you have to pay only 20gb price)
+    Below is the diagram how they connected
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055824](https://github.com/user-attachments/assets/6420a404-361e-4733-9445-cdfb7e2c27ef)
+### EBS vs EFS
+    rectangle represents instances
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055824 (1)](https://github.com/user-attachments/assets/e448323b-5027-4ecc-b176-5b805c2752b7)
+### EFS Infrequent Access(ESA-IA)
+    Storage that is cost optimized for files not accessed everyday
+    upto 92% lower cost compared to EFS
+    EFS will automatically move your files to EFS-IA based on the last time they are accessed
+    Enable EFS-IA with a life cycle policy
+    ExampleL Move files that are not accessed for 60 days to EFS-IA
+    Transparent to the applications accessing EFS
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055824 (2)](https://github.com/user-attachments/assets/15bb6d1f-9a36-41b0-9da8-0b1f9ff4d5d5)
+
+    
+
+    
+    
+
+    
+
+    
         
             
     
