@@ -862,6 +862,96 @@
     ExampleL Move files that are not accessed for 60 days to EFS-IA
     Transparent to the applications accessing EFS
 ![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055824 (2)](https://github.com/user-attachments/assets/15bb6d1f-9a36-41b0-9da8-0b1f9ff4d5d5)
+### Shared Responsibility model for EC2 storage
+    aws - infrastructure, Replication for data for EBS volumes and EFS drives, Replacing faculty hardware, Ensuring their employees cant access your data
+    customer- Setting up backup/snapshot procedures, Setting up data encryption, Responsibility of any data you write on drive, Understanding risk of using EC2 instance store.
+### Amazon Fsx - overview
+    lauch 3rd party high-performance file systems on AWS
+    fully managed system
+    Amazon FSx for windows file server
+        A fully managable, highly reliable, and scalable windows native shared file system
+        Built on windows file server
+        Supports SMB protocal and windows NTFS
+        Integrated with microsoft active directory for security
+        Can be accessed from AWS or your on-premise infrastructure
+    Amazon FSx for lustre
+        A fully managed, high performance, scalable file storage for High performance Computing(HPC)
+        The name lusture is derived from linux and cluster
+        Machine learning, Analytics, Video processing, Financial Modeling
+        Scales upto 100s GB/s, millions of IOPS, sub-ms latencies
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_26623482](https://github.com/user-attachments/assets/882b197b-5472-4d0c-a4c7-02faeadc408c)
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_26623482 (1)](https://github.com/user-attachments/assets/2e17a192-f4b6-4733-be25-2e24cb6f20d9)
+### EC2 Instance storage - summary
+    EBS volume:
+        network drives attached to one EC2 instance at a time
+        Mapped to availibility zones
+        can use EBS Snapshots for backup/transferring EBS volumes across AZ
+    AMI: create read-to-use EC2 instance with customization
+    EC2 image builder: automatically build, test and distribute AMI
+    EC2 Instance store: 
+        High performance hardware disk attached to our EC2 instance
+        Lost if our EC2 instance is stopped/terminated
+    EFS: network file system, can be attached to 100s Ec2 instances in a region
+    EFS-IA: cost optimized storage class for infrequent accessed files
+    FSx for windows: Network file system for windows servers
+    FSx for Lusture: High performance computing linux file system
+### Quiz
+    1)Which EC2 Storage would you use to create a shared network file system for your EC2 Instances?
+        a)EBS volume
+        b)Ec2 instance store
+        c)EBS snapshots
+        d)EFS
+        ans: D
+    2)Which service can be used to automate image management processes?
+        a)AMI
+        b)EC2 Image Builder
+        c)EBS snapshots
+        D) IAM
+        ans: B
+    3)Which of the following is a fully managed native Microsoft Windows file system?
+        a)EFS
+        b)FSx
+        c)EBS
+        ans: B
+        Amazon FSx makes it easy and cost effective to launch and run popular file systems that are fully managed by AWS. It comes in two offerings: FSx for Windows File Server (used for business applications), and FSx for Lustre (used for high-performance computing).
+    4)What are AMIs NOT used for?
+        a)Add your own software license
+        b)Add your own configuration
+        c)Add your own operting system
+        d)Add your own ip address
+        ans: You cannot use AMIs to add your IP addresses. IP addresses are added to an instance as you create it.
+    5) EBS Volumes CANNOT be attached to multiple EC2 instances at a time.
+        True
+    6) An EBS Volume is a network drive you can attach to your instances while they run, so your instances' data persist even after their termination.
+        True
+        EBS Volumes allows instances' data to persist even after their termination.
+    7) Which statement is CORRECT regarding EC2 Instance Store?
+        It has better I/O performance, but the data is lost if the EC2 instance is terminated
+    8) What is an EBS Snapshot?
+        A backup of your EBS volume at a point in time
+    9) Where can you find a third party's AMI so you can use it to launch your EC2 Instance?
+        a)Public AMIs
+        b)My own AMIs
+        c)AWS market AMIs
+        ans: C
+        You can use AWS Marketplace AMIs to use someone else's AMI.
+    10) What is an EBS Volume tied to?
+        a) A region
+        b) An availibility zone
+        ans: b
+        EBS Volumes are tied to only one availability zone.
+## Elastic load balancing and auto scaling Groups section
+### Scalability and high availibility
+    Scalability means that an application/system can handle greater loads by adapting
+    There are two kinds of scalabilities:
+        Vertical scalability
+        Horizontal scalability (= elasticity)
+    Scalability is linked but different to High Availibility
+    
+
+
+    
+    
 
     
 
