@@ -474,7 +474,7 @@
     instance type: t2.micro (1cpu, 1gb ram eligible for free tier)
     keyvalue: click on create keyvalue, name: ec2 tutorial, algorithm: rsa, file type: pem, download the pem file
     firewall security: allow HTTP traffic
-    In the advanced details: scroll down and add this code in user data box
+    In the advanced details: scroll down and add this code in user data scripts in user data box
         #!/bin/bash
         # Use this for your user data (script from top to bottom)
         # install httpd (Linux 2 version)
@@ -776,6 +776,55 @@
             Specify retenion (from 1day to 1year)
             
 ![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055798](https://github.com/user-attachments/assets/e9748c9c-7c6f-428c-a2a1-dd1933a1a604)
+### Hands on EBS Snapshot
+    Suppose i have EBS on us-east-1a region i want to change region to us-east-1b region
+    Ec2 -> volumes -> select volume, click on actions -> select create snapshot
+    Ec2 -> snapshots -> select snapshot, click on actions, select create volume from snapshot -> change the AZ to us-east-1b
+    Check volumes we can see the new volume at us-east-1b zone
+    Enable Snapshot recycle bin
+        EC2 -> snapshots -> click on lauch recycle bin -> retension rule -> create retension rule -> enter name: DemoRentensionRule, resourse type: EBS snapshot, lock setting: Unlock so that we can remove snapshot from the bin
+        Try deleting snapshots
+        Now we can see the deleted snapshots under recyle bin -> resources and can restore as well
+### AMI
+    AMI = Amazon Machine Image
+    AMI's are customization of EC2 instance
+        you can add your own software, configuration, operating system, monitoring
+        Faster boot/ configuration time because all you softwares is pre-packaged
+    AMI's are built for a specific region(and can be copied across regions)
+    You can launch ec2 instance from:
+        A public AMI: AWS provided
+        Your own AMI: you make and maintain by your self
+        An AWS marketplace AMI: an AMI someone else made(and potentially sells)
+    AMI Process:
+        start an EC2 instance and cutomize it
+        Stop the instance(for data integrity)
+        Build an AMI - this will also create EBS snapshots
+        Lauch instances from other AMIs
+#### AMI Handson
+    Step1) Create a Sample instance
+        Lets create a instance named AMI
+        In the user data scripts
+        Lets add this code
+            #!/bin/bash
+            # Use this for your user data (script from top to bottom)
+            # install httpd (Linux 2 version)
+            yum update -y
+            yum install -y httpd
+            systemctl start httpd
+            systemctl enable httpd
+        here we are installing apche server
+        and lauch the instance
+    Step2) Right click on the instance, click on image and templates, click on create image, add name: DemoImage
+    Step3) EC2 -> AMI we can see our DemoImage is there. Now we can create instances from the DemoImage, That means if we want to have a instance with apache server preinstalled we can directly use this image without writing any user data code
+    Step4) Create the instance based on the DemoImage
+            while creating the new instance under Application and OS Images (Amazon Machine Image), select MyAMI's and select DemoImage
+            In the advanced tab under add user data scripts there
+            echo "<h1>Hello World from $(hostname -f)</h1>" > /var/www/html/index.html
+        now copy paste the public ip in the browser this will work
+        
+            
+    
+    
 
 
 
