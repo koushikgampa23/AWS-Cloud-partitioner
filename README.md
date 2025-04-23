@@ -947,6 +947,58 @@
         Vertical scalability
         Horizontal scalability (= elasticity)
     Scalability is linked but different to High Availibility
+#### Vertical Scalability
+    Vertical Scalability means increasing the size of the instance 
+    for example your application runs on t2.micro. Scaling that application vertically means running it on t2.large
+    Vertical scalability is very common for non distributed systems, such as database
+    There's are limit to How much you can vertically scale(hardware)
+#### Horizontal Scalability
+    Horizontal Scalability means increasing instances for your application
+    Horizontal Scaling that implies distributed systems.
+    This is common for web applications/modern applications
+    Its easy to horizontall scale thanks the cloud offerings such as Amazon EC2
+#### High Availbility
+    High Availbility usally goes hand-in-hand with horizontal scaling
+    High Availbility means running your application in at least 2 availbility zones(AZ)
+    The goal of availbility is to survive data center loss(disaster)
+#### Summary
+    Vertical Scaling: Increase instance size(=scale up/down)
+        From t2.nano:0.5Gb of RAM,1vCPU to u-12tbl-metal:12.3TB of RAM, 448 vcpus
+    Horizontal Scaling: Increase number of instances(=scale out/in)
+        Auto scaling Groups
+        load balancers
+    High Availbility: Run instances for the same application across different AZ
+        Auto scaling Group multi AZ
+        Load balancer multi AZ
+### Scalability vs Elasticity (vs Agility)
+    Scalability: ability to accomodate larger load by making hardware stronger(scale up), by adding nodes(scale out)
+    Elasticity: It is related to cloud, Once a system is scalable, elasticity means that there will be auto scaling so that the system can scale based on the load.
+    This is cloud friendly, pay-per-use, match demand, optimize costs
+    Agility(not related to scalability - distractor): It is related to organization how quick they have getting resources.New IT resources are only a click away,
+    which means that you reduce the time to make those availible for developers from weeks to just minutes.
+#### what is Load balancering?
+    load balancers are servers that forward internet traffic to multiple servers (EC2 instances) downstream.
+    Spread load across multiple downstream instance
+    Expose a single point of access(DNS) to your application
+    Seamlessly handle failures of downstream instances
+    Do regular health checks to your instances
+    Provide SSL termination(HTTPS) for your websites
+    High availibilty across zones
+#### Why Elastic Load Balancer?
+    An ELB is a managed load balancer
+        AWS guarantees that it will be working
+        AWS will take care of upgrades, maintanance, high availibility
+        AWS provides only a few configuration knobs
+    It costs less to setup your own load balancer but it will be a lot more effort on your end
+    4 kinds of load balancers offered by AWS:
+        Application Load balancer(HTTP/HTTPS only) - also called as Layer 7
+        Network Load balancer(ultra high performance, allows for TCP) - Layer 4
+        Gateway load balancer - layer 3
+        Classic load balanacer(retired in 2023) - layer 4 & 7
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055864](https://github.com/user-attachments/assets/29fd739a-1e78-4fe4-9d92-cd010d7a9e01)
+
+        
+    
     
 
 
