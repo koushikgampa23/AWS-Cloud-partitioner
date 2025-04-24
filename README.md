@@ -1151,6 +1151,51 @@
         c) Handle failures of downstream instances
         d) Backend autoscaling
         ans: D
+## S3 bucket
+    Amazon S3 is the one of the main building blocks of AWS
+    It is advertised as "infinitely scaling" storage
+    Many websites use S3 as backbone
+    Many Aws services use Amazon S3 as an integration as well
+### Amazon S3 use cases
+    Backup and storage
+    Disastery Recovery
+    Archieve files in S3 that is much much cheaper
+    Hybrid cloud storage
+    Application hosting
+    Media hosting
+    Data lakes and big data analytics
+    Software delivery
+    static website
+    Use case: Nasdaq stores 7 years of data into S3 glacier
+              Sysco runs analytics on its data and gain business insights
+### Amazon S3 buckets
+    Allows people to store objects(files) in S3 bucket(directories)
+    Bucket must have a globally unique name(across all regions all accounts)
+    Buckets are defined at the region level
+    S3 looks like a global service but the buckets are created in region
+    Naming convension
+        No uppercase, No underscore
+        3-63 characters long
+        Not an IP
+        must start with lower or number
+        Must not start with prefix xn-
+        must not end with sufix -s3alias
+### Amazon S3 objects
+    Objects(files) have a Key
+    The key is the full path:
+        s3://my-bucket/my_file.txt
+        s3://my-bucket/my_folder1/another_folder/my_file.txt
+    The key is composed of prefix + object name
+    There's no concept of directories within buckets
+    (although the ui will trick you to think otherwise)
+    Just keys with very long names that contain slash("/")
+    object values are the content of the body:
+        Max. object size is 5TB(5000 GB)
+        If uploading more than 5GB,must use multi-part upload
+    Metadata(list of key/value pairs - system or user metadata)
+    Tags(Unicode key/value pair upto 10) - useful for security/lifecycle
+    Version ID(if versioning is enabled)
+    
 
             
         
