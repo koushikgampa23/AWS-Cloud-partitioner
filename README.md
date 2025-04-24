@@ -1075,6 +1075,84 @@
         Click on next use all default
         Now in the instance if we can check we can see 2 instances were created by autoscaling, since given desired capacity2
         Check the loadbalancers, demoALb, demo-tg-alb these 2 instances we can see there as well
+#### Auto scaling groups - Scaling Strategies
+    Manual Scaling: update the size of the ASG manually
+    Dynamic Scaling: Respond to changing demand
+        Simple/step Scaling:
+            when a cloud watch alarm is triggered (example cpu > 70%), then add 2 units.(if all instances are running at 70% add 2)
+            When a cloud watch alarm is triggered(example cpu < 30%), then remove it.(if all instances are running at 30%)
+        Target Tracking scaling:
+            Example: I want the average ASG CPU to stay at around 40%. (example i want to all the ec2 instances cpus utilization to be average 40%)
+        Scheduled Scaling:
+            Anticipate scaling based on known usage patterns
+            Example: increase min capacity to 10 at 5pm on fridays
+        Predicitive Scaling:
+            Uses machine learning to predict future traffic ahead of time
+            Automatically provisions right number of instaces in advance
+            Useful when your load has predictable time-based patterns
+#### ELB & ASG - Summary
+    High availibility vs scalability (vertical vs horizontal) vs Elasticity vs Agility in the cloud
+    Elastic Load Balancers
+        Distribute traffic across backend EC2 instances, can be mulit AZ
+        Supports health checks 
+        4 kinds of load balances:
+            classic(old), Application(HTTP - L7), Network(TCP - L4), Gateway(L3)
+        Autoscaling Groups
+            Implement Elasticity for your application, across mulitple AZ
+            Scale EC2 instances based on the demand on your system, replace unhealthy
+            Integrated with ELB
+#### Quiz
+    1)What is the main purpose of High Availability in the Cloud?
+        a) increase scalability
+        b) Application triveing even in case of disaster
+        c) Access on computer and smartphone
+        d) Handle greater loads by launching EC2 instances based on the demand
+        ans: B
+    2)Which AWS offered Load Balancer should you use to handle hundreds of thousands of connections with low latency?
+        a) Application LB
+        b) Network LB
+        c) Elastic LB
+        ans: B, A Network Load Balancer can handle millions of requests per second with low-latency. It operates at Layer 4, and is best-suited for load-balancing TCP, UDP, and TLS traffic with ultra high-performance.
+    3) Changing an EC2 Instance Type from a t3a.medium to a t3a.2xlarge is an example of?
+        ans: vertical scaling
+    4) What can you use to handle quickly and automatically the changing load on your websites and applications by adding compute resources?
+        a) An elastic load balancer
+        b) A bigger instance type
+        c) An auto scaling group
+        d) Health checks on your EC2 instance
+        ans: D
+    5) Which of the following statements is INCORRECT regarding Auto Scaling Groups?
+        a) Replace Unhealthy instances
+        b) Are cost effictive by running at optimal capacity
+        c) Automatically register new instances to a load balancer
+        d) Automatically changing the EC2 instance Types
+        ans: D, Auto Scaling Groups can add or remove instances, but from the same type. They cannot change the EC2 Instances Types on the fly.
+    6) Which Load Balancer is best suited for HTTP/HTTPS load balancing traffic?
+        a) Network LB
+        b) classic LB
+        c) Elastic LB
+        d) Applicaiton LB
+        ans: D
+    7) Which of the following is NOT an Auto Scaling Strategy?
+        a) Manual Scaling
+        b) Dynamic Scaling
+        c) Active Scaling
+        d) Predictive Scaling
+        ans: C
+    8) Which AWS service offers easy horizontal scaling of compute capacity?
+        a) EBS
+        b) AMI
+        c) IAM
+        d) ASG
+        ans: D
+    9) Which of the following statements is NOT a feature of Load Balancers?
+        a) Do regular health checks to your instance
+        b) Spread across multiple downstream instances
+        c) Handle failures of downstream instances
+        d) Backend autoscaling
+        ans: D
+
+            
         
                 
                 
