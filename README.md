@@ -996,9 +996,92 @@
         Gateway load balancer - layer 3
         Classic load balanacer(retired in 2023) - layer 4 & 7
 ![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055864](https://github.com/user-attachments/assets/29fd739a-1e78-4fe4-9d92-cd010d7a9e01)
-
+#### Hands on Load balancers
+    First create 2 instances in the normal way but in the right hand side add 2 in the number of instances
+    Check the instances by copying the public ip address in two different tabs
+    navigate -> EC2 -> Loadbalancers -> Create Application Load balancer
+    Steps:
+        Loadbalancer name: ALB
+        Choose internet facing
+        IPV4
+        VPC: default
+        Select all Availbility Zones(AZ)
+        Security Groups: Create Security Group
+                            Securtiy Group name: Allow only http
+                            Description: This security group only allows http request to our application
+                            Add inbound rule
+                                Type: select HTTP beside the source column add ip address as 0.0.0.0/0(It allows every Ip address)
+                            Add outbound rule:
+                                Type: allow traffic add ip address 0.0.0.0/0
+                            Create security group
+        Add this Allow only http security group
+        In the Listeners and routing section
+        In the default action : Create target Group
+                                    choose target type: instances
+                                    target group name: demo-tg-ALB
+                                    Choose IPV4
+                                    HTTP1
+                                    Select the instance you want
+                                    Click as include on pending below
+                                    click on create target group
+        Add demo-tg-ALB in the default action
+        Click on create load balancer
+        Created Successfully
+        Copy the DNS name and paste it in the browser it will work if not wait for few minutes
+        If i keep on refreshing the page the ip address is changing between my 2 instances
+        What happens when one of the instance is not working
+            Go to instances and stop first instance
+            Go to Loadbalancers, click on target groups and click on refresh it shows the first instance Health status is unhealthy
+            Refresh the browser now we can see only one ip address that means load balancer will work even if one instance is healthy
+#### Whats an Auto Scaling Group (ASG)?
+    In reallife the load on your websites and applications change, if we have a shopping application if it is a daytime the application load increases and at night there is no load to the application
+    In the cloud we can create and get rid of servers very quickly
+    The goal of an Auto Scaling group is to
+        Scale out(add EC2 instances) to match increased load
+        Scale in(remove Ec2 instances) to match decreased load
+        Ensure we have a minimum and maximum numbers of machine running
+        Automatically register new instances to load balancer
+        Replace unhealty instances
+    Cost Savings: Only run at an Optimal capacity(principle of cloud)
+    In the ASG we can add we can add minimum size, Desired Capacity, Maximum size, Scale out as needed
+    It works hand-in-hand with ALB(Application Load balancer)
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055886](https://github.com/user-attachments/assets/76f33251-bd3f-42b5-b881-14820855afbe)
+### Handson
+    First lets delete the existing instances
+    Navigate EC2 -> Autoscaling -> 
+    Create Auto Scaling Group
+        Name: DemoASG
+        lauch template: Create lauch template
+            Name: DemoLaunchTemplate
+            Just like Create EC2 instance do the same steps
+                Click on Quick start
+                select : Amazon linux server
+                select instance type: t2.micrp
+                Select existing security group: lauch-wizard-1
+                Add user data scripts:
+                    #!/bin/bash
+                    # Use this for your user data (script from top to bottom)
+                    # install httpd (Linux 2 version)
+                    yum update -y
+                    yum install -y httpd
+                    systemctl start httpd
+                    systemctl enable httpd
+        Select DemoLauchTemplate click next
+        In the next page select all AZs
+        In the next page click on Attach to an existing load balancer
+            Select demo-tg-alb the previous one
+        In the health check enable Elastic load balancing health checks
+        In the next page Desired capacity: 2, minimum: 1, max: 4
+        Click on next use all default
+        Now in the instance if we can check we can see 2 instances were created by autoscaling, since given desired capacity2
+        Check the loadbalancers, demoALb, demo-tg-alb these 2 instances we can see there as well
         
-    
+                
+                
+            
+            
+                                            
+                                    
     
 
 
