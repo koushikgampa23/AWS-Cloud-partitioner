@@ -1195,6 +1195,58 @@
     Metadata(list of key/value pairs - system or user metadata)
     Tags(Unicode key/value pair upto 10) - useful for security/lifecycle
     Version ID(if versioning is enabled)
+### Handson
+    navigate Amazon S3 -> Buckets -> create Bucket
+    Except name keep remaining default
+    name: koushik-demo-s3(it should be unique across regions and across all the accounts)
+    Create bucket
+    Click on the bucket i have created
+    upload file -> Add files -> temp.png
+    click on temp.png click on open button it will open the file another tab the url contains token
+    if i use object url it wont work since it is only accessible by me missing token in the url
+### Amazon S3 - security policies
+    User Based
+        IAM policies - which API calls should be allowed for a specific user from IAM
+    Resource Based
+        Bucket policies - bucket wide rules from the s3 console - allows cross account
+        Object Access Control List(ACL) - finer grain (can be disabled)
+        Bucket Access Control List(ACL) - less common (can be disabled)
+    Note: An IAM priciple can access an s3 object if
+            The IAM permissions allow it or the resource policy allows it
+            AND there's no explicit DENY
+    Encryption: encrypt objects in Amazon s3 using encryption keys
+### S3 bucket policies
+    JSON based policies
+        {
+            "version": "2012-10-17",
+            "Statement": [
+                {
+                    "sid": "PublicRead",
+                    "Effect": "Allow",
+                    "Principal": "*",
+                    "Action": [
+                        "s3.GetObject"
+                    ],
+                    "Resource": [
+                        "arn.aws.s3:::examplebucket/*"
+                    ]
+                }
+            ]
+        }
+    Resource tells on what buckets or objects the policy applies on here the policy is applied on examplebucket/, this applies to every object inside examplebucket
+    Effect tells allow or deny actions
+    Actions: set of apis to allow or deny
+    principal: The account or user to apply the policy to
+
+    Here we are allowing anyone to retrieve object from my examplebucket
+
+    Use S3 bucket for policy to:
+        Grant public access to the bucket
+        Force objects to be encrypted at upload
+        Grant access to another account(cross account)
+        
+    
+    
     
 
             
