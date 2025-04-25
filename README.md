@@ -1244,6 +1244,88 @@
         Grant public access to the bucket
         Force objects to be encrypted at upload
         Grant access to another account(cross account)
+    Bucket settings for block public access
+        Block all public access enabled when creating s3 bucket
+    These settings were created to prevent company data leaks
+    If you known your bucket should never be public, leave thes on
+    can be set at the account level
+### Handson
+    Make all the objects(files) public in s3 bucket
+    Step1) Click on the bucket that i have created underpermissions edit -> turn off block all public access -> save changes
+    Step2) Scroll down edit bucket policy click on policy generator
+            principal - *(allowing all users and accounts)
+            Aws service - select s3 bucket
+            actions - GetObject
+            ARN(Amazon Resource Name) - copy from bucket ARN and paste there + file path
+                                            example: arn:aws:s3:::koushik-demo-s3-v2/*(giving access to all files)
+            Generate Policy and paste in the s3 bucket policy
+    Step3) Now our file Object url is available across internet
+### Amazon S3- static website hosting
+    S3 can host static websites and have them available across the internet
+    The website URL will be depending on the region
+        http://bucket-name.s3-website-aws-region.amazonaws.com
+        or
+        http://bucket-name.s3-website.aws-region.amazonaws.com
+        difference is - and . before aws region
+    If you get a 403 forbidden error, make sure the bucket policy allows public reads
+### Handson
+    navigate -> Amazon s3 -> Buckets -> DemoBucket(i havae created) -> properties scroll down -> static web hosting -> edit -> enable -> index document: index.html -> save changes
+    In the objects tab upload index.html file
+    To get the hoisted url go to properties tab and copy Bucket website endpoint
+### Amazon S3 - versioning
+    You can version your files in s3
+    It is enabled at the bucket level
+    Same key overwrite will change the version: 1,2,3
+    It is best practise to version your buckets
+        Protect against unintended deletes(ability to restore a version)
+        Easy rollback to previous version
+    In the ui we can see that it has been overwritten 
+    Note:
+        any file that is not versioned prior to enabling versioning will have version is null
+### Handson
+    To simulate this create a new index.html file
+    Step1) Enable versioning
+            Go to properties -> Bucket versioning -> edit -> enable
+    Step2) upload the updated index.html file and reload the hosted url to check weather it is updated or not
+    Step3) in the objects enable show versions we can see two files index.html with null version and other with other version
+    Step4) To delete a file permanently enable versioning select file and click on delete, write permanently delete this will delete the file
+    Step5) if i want to delete the file and want to recover it later
+            turn off show versions
+            click on logo.png file and delete
+            Now turn on show versions we can see the logo.png file there if i want to recover
+            select logo.png that is of type delete marker and delete it, write permanently delete
+            now refresh the objects now we got the file recovered
+### Amazon s3 - Replication(CRR & SRR)
+    Must enable versioning betweeen source and destination
+    Cross-Region Replication(CRR)
+    Same-Region Replication(STRR)
+    Buckets can be in different accounts
+    Copying is asynchronous
+    Must give proper IAM permissions to S3(like read and write)
+
+    Use cases:
+        CRR - compliance, low latency access, replication across region
+        SRR - log aggregation, live replication between production and test accounts
+### Hands on
+    lets create two buckets koushik-s3-demo-source, while creating enable bucket versioning and while creating another bucket try changing the region and create it
+    Now i have created two buckets source and destination in two different regions what ever the file uploaded to source bucket should be replicated to destination bucket
+    Step1) Create replication rule
+            click on source bucket -> management -> create replication rule
+                                                        name: DemoReplicationRule
+                                                        In the source bucket section enable: Apply to all objects in the bucket
+                                                        destination: choose this account
+                                                        enter bucket name: koushik-s3-demo-destination
+                                                        it should automatically detect the location of destination bucket
+                                                        IAM role: Create new role
+                                                        Click on No, i dont want to replicate existing objects
+    For better visulization open two tabs two different buckets
+    Step2) Upload a file in the source bucket and check the destination it will work
+    Now check the version id in the destination bucket it will be same
+### S3 Storage Classes
+
+    
+                                            
+                            
         
     
     
