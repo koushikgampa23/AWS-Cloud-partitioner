@@ -1348,6 +1348,44 @@
 
     Use cases: Big Data analytics, mobile and gaming applicaitons, content distribution
 ### S3 standard classes - Infrequent Access
+    For data that is less frequently accessed, but requires rapid access when needed
+    Lower cost than s3 standard
+    Amazon s3 infrequent access(S3 standard IA)
+        99.9% Availibility
+        Use cases: Disaster Recovery, backups
+    Amazon S3 One infrequent access(S3 one Zone-IA)
+        High durability in a single AZ; data is lost when AZ is destoyed
+        99.5%
+    Use cases: Storing secondary backup copies of on-premise data, or data you can recreate
+### Amazon S3 glacier storage class
+        Low cost object storage meant for archiving/backup
+        Pricing: price for storage + object retrievel cost
+    Amazon s3 glacier instance retrieval
+        Millisecond retrievel, great for data accessed once a quater
+        Minimum storage duration is 90 days
+    Amazon S3 Glacier Flexible Retrieval(formely Amazon s3 Glacier)
+        Expedited(1 to 5 minutes), Standard(3 to 5 hours), Bulk(5 to 12 hours) - free
+        Minimum Storage duration is 90 days
+    Amazon s3 Glacier Deep archive - for long term storage
+        Standard(12 hours), Bulk(48 hours)
+        Minimum storage duration is 180 days
+### S3 intelligent - Tiering
+    Small montly monitoring and auto tiering fee
+    Moves objects automatically between access tiers based on usage
+    There are no retrieval charges in s3 intelligent-tiering
+
+    frequent access tier(automatic): default tier
+    Infrequent Access tier(automatic): objects not accessed for 30 days
+    Archeive Instant access tier(automatic): Objects not accessed for 90 days
+    Archive Access tier(optional): configurable from 90 days to 700+ days
+    Deep Archive Access tier(optional): Config from 180 days to 700 days
+
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055948](https://github.com/user-attachments/assets/f832051a-762f-4493-af87-6a36a01179c3)
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055948 (1)](https://github.com/user-attachments/assets/66e9034e-ae98-48b9-9a81-c805d0b10029)
+
+
+        
+    
     
     
     
