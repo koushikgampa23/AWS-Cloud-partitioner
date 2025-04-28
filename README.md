@@ -1322,7 +1322,34 @@
     Step2) Upload a file in the source bucket and check the destination it will work
     Now check the version id in the destination bucket it will be same
 ### S3 Storage Classes
+    Amazon S3 standard - General Purpose
+    Amazon s3 standard - Infrequent Access(IA)
+    Amazon S3 One zone - Infrequent Access
+    Amazon S3 Glacier Instant Retrivel
+    Amazon S3 Glacier Flexible Retrivel
+    Amazon S3 Glacier Deep Archive
+    Amazon S3 Intelligent Tiering
 
+    While creating s3 we can choose the class and we can move between classes manually or using s3 lifecyle configuration
+### S3 Durability and Availibility
+    Durability
+        High durability(99.999999%) of objects across multiple AZ
+        if you store 10,000 objects with Amazon S3, you can on average expect to incur a loss of a single object once every 10,000 years
+        Same for all storage classes
+    Availibility
+        Measures how readily available a service is
+        Varies depending on storage class
+        Example: S3 standard has 99.999999% availibity = not available 53 minutes a year
+#### S3 standard - General Purpose
+    99.99% Availbility
+    Used for frequently accessed data
+    Low latency and high throughput
+    Sustain 2 concurrent failure failures
+
+    Use cases: Big Data analytics, mobile and gaming applicaitons, content distribution
+### S3 standard classes - Infrequent Access
+    
+    
     
                                             
                             
