@@ -1382,7 +1382,147 @@
 
 ![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055948](https://github.com/user-attachments/assets/f832051a-762f-4493-af87-6a36a01179c3)
 ![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055948 (1)](https://github.com/user-attachments/assets/66e9034e-ae98-48b9-9a81-c805d0b10029)
-
+#### S3 Encryption
+    In S3 server side encryption happens by default, when ever we upload files, server will encrypt the files automatically.
+    It also supports client side encryption encrypt a file and upload the server, the server will again encrypt the file
+    Both client and server side encryption is supported by s3
+#### IAM Access Analyser for s3
+    Ensures that only intended people have access to your bucket
+    Example: Publically accessible bucket, bucket shared with other accounts
+    Evaluates s3 bucket policies, s3 ACLs, s3 Access Point Policies
+### Shared responsibility model for s3
+    amazon
+        Infrasture(global security, durability, availibility, sustain concurrent loss of data in two facilities)
+        Configuration and vulnerability analysis
+        compliance validation
+    User
+        S3 verisioning
+        S3 Bucket policies
+        S3 Replication setup
+        Logging and monitoring
+        S3 storage class
+        Data encryption
+#### AWS snowball
+    High secure, portable devices to collect and process data at the edge and migrate into and out of aws
+    Helps migrate upto pentabytes of data
+    Snowball Edge storage optimized
+        compute 104vCPUs, storage 210 TB(SSD), Memory 416GB
+    Snowball Edge compute optimized
+        compute 104vcpus, storage 28 TB(SSD), Memory 416 GB
+    When to use this device
+    Challenges:
+        Limited connectivity
+        Limited bandwidth
+        High network cost
+        Shared bandwidth
+        Connection stability
+    AWS snow ball: offline devices to perform data migrations
+    if it takes over 1 week to transfer over the network, use snow ball devices
+    What is Edge computing?
+        Process data while the data is created at edge location
+            A truck on the data, a ship on the sea, mining station underground
+        These locations may have limited internet, and no access to computing power
+        We setup snowball edge device to do edge computing
+            Run EC2 instances and lambda function on edge
+            do some preprocessing of data and send the results
+        Usecases: Preprocess data, machine learning, transcoding media
+#### Snowball edge pricing
+    You pay for device usage and data out of aws
+    Data transfer IN to amazon s3 is 0$ per gb
+    On demand
+        Includes one time service fee per job, which includes
+            10 days of usage of snow ball edge compute optimized device
+            15 days of usage of snow ball edge storage device
+        shipping days are not counted towards the included 10 or 15 days
+        Pay per day for any additional days
+    Commited upfront
+        Pay in advance for montly, yearly, and 3 years usage(edge computing)
+        up to 62% discounted pricing
+#### Hybrid cloud for storage
+    AWS is pushing for hybrid cloud
+        Part of your infrastructrue is on premises
+        part of your infrastructure is on cloud
+    This is due to
+        Long cloud migration
+        Security requirement
+        compliance requirement
+        IT strategy
+    S3 is proprietary storage technology(unlike EFS/NFS), so how do you expose the s3 data on-premise?
+    AWS storage gateway
+#### AWS storage cloud native options
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055966](https://github.com/user-attachments/assets/d31da17a-c60f-4c98-aa6e-de08b7e0de66)
+#### AWS storage gateway
+    Bridge between onpremise data and cloud data in s3
+    Allows onpremise to use seamlessly AWS cloud
+    Use cases:
+        disaster recovery, backup and restore, tiered storage
+    Types of storage gateways:
+        File Gateway
+        Volume gateway
+        Tape Gateway
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055966 (1)](https://github.com/user-attachments/assets/320b1656-88e5-406a-9ee6-fc913321d1e2)
+#### Amazon s3 - Summary
+    Buckets vs objects - global unique name, tied to a region and objects reside inside the buckets
+    S3 security - IAM policy, S3 Bucket policy (public policy), S3 encryption
+    S3 Websites - host a static website on s3
+    S3 versioning - Multiple versions for files, prevent accidential deletes
+    S3 Replication - same region or cross region, must enable versioning
+    S3 storage classes - Standard, IA, IZ-IA, Intelligent, Glacier(Instant, flexible, deep)
+    snow family - import data onto s3 through a physical device, edge computing
+    Ops hub - Desktop application to manage snow devices
+    Storage gateway - hybrid solution to extend on premise storage to s3
+### Quiz
+    1.Which S3 Storage Class is the most cost-effective for archiving data with no retrieval time requirement?
+        a) Amazon Glacier
+        b) Amazon Glacier Deep Archive
+        c) Amazon s3 inadequent Access
+        d) Amazon s3 intelligent tiering
+        ans: B
+        Amazon Glacier Deep Archive is the most cost-effective option if you want to archive data and do not have a retrieval time requirement. You can retrieve data in 12 or 48 hours.
+    2.What hybrid AWS service is used to allow on-premises servers to seamlessly use the AWS Cloud at the storage layer?
+        ans: storage gateway
+        AWS Storage Gateway is a hybrid cloud storage service that gives you on-premises access to virtually unlimited cloud storage
+    3.What are Objects NOT composed of?
+        a) key
+        b) value
+        c) Access keys
+        d) meta data
+        ans c)
+        Access Keys are used to sign programmatic requests to the AWS CLI or AWS API.
+    4.Where are objects stored in Amazon S3?
+        a)folders
+        b)buckets
+        c)files
+        d)bin
+        ans: B
+    5. What can you use to define actions to move S3 objects between different storage classes?
+        a) scaling policy
+        b) bucket policy
+        c) Lifcycle rules
+        d) Replication
+        B) Incorrect
+        Bucket policies are JSON documents for granting permission to your Amazon S3 resources. It is not used to define actions to move S3 objects between different storage classes.
+        A) Incorrect
+        A Scaling Policy is used to define how to scale the capacity of your Auto Scaling group in response to changing demand. It is not used to define actions to move S3 objects between different storage classes. S3 scales automatically and is advertised as an “infinite” storage
+        C) Correct
+        Lifecycle Rules can be used to define when S3 objects should be transitioned to another storage class or when objects should be deleted after some time.
+    6. A non-profit organization needs to regularly transfer petabytes of data to the cloud and to have access to local computing capacity. Which service can help with this task?
+        a) Snowball edge - storage optimized
+        b) Snowabll edge - compute optimized
+        c) snowcone
+        d) snowmobile
+        ans: B incorrect - Snowball Edge Compute Optimized provides powerful computing resources for higher performance workloads such as machine learning, full motion video analysis, analytics, and local computing stacks. Despite providing local computing capacity, AWS Snowball Edge Compute Optimized devices are not best-suited for data transfer, but instead the high performance workloads mentioned above.
+        ans: A correct
+    7. Which S3 Storage Class is suitable for less frequently accessed data, but with rapid access when needed, while keeping a high durability and allowing an Availability Zone failure?
+        a) Amazon s3 standard - General Purpose
+        b) Amazon glacier
+        c) Amazon s3 one-zone infrequent Access
+        d) Amazon s3 standard-infrequent access
+        ans: D
+        
+    
+    
+    
 
         
     
