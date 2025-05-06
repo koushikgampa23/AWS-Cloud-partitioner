@@ -1591,6 +1591,7 @@
                                                               Vpc group name - rds_firewall(some random name)
                                                               Select AZ
                                                               Click on create Db
+                                                              In the additional configuration we can find the port number
 
 ![image](https://github.com/user-attachments/assets/e09c6fde-32cd-44d4-8af0-188a073f8296)
 
@@ -1598,6 +1599,27 @@
 
 
 ![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_24682526 (2)](https://github.com/user-attachments/assets/5e7a1401-305a-4c4c-9c30-e0ed2ad9fc06)
+
+### Amazon Elastic cache Overview
+    The same way RDS is to get managed relational databases
+    ElasticCache is to get managed Redis or memcached
+    Caches are in-memory databases with high performance, low latency
+    Helps reduce load off databases for read intensive workloads
+    AWS takes care of OS maintanance/patching, optimizations, setup configuration, monitoring, failure recovery and backups
+
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055990](https://github.com/user-attachments/assets/2a9f58bc-2875-4fe7-b04e-0a56467b7082)
+### Dynamo DB
+    Fully managed highly available with replication across 3 AZ
+    NoSQL database - not a relational database
+    Scales to massive workloads, distributed serverless database
+    Millions of requests per seconds, trillions of row, 100TB of storage
+    Fast and consistant in performance
+    Single digit millisecond latency - low latency retrival
+    Integrated with IAM for security, authorization and administration
+    Low cost and autoscaling capabilites
+    Standard and Infrequent Access Table class
+
+
 
 
         
