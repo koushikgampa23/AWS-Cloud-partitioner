@@ -1519,6 +1519,88 @@
         c) Amazon s3 one-zone infrequent Access
         d) Amazon s3 standard-infrequent access
         ans: D
+## Databases Intro
+    Storing data on disk(EBS, EFS, EC2 store instance, S3) have its limit
+    You can structure the data
+    You build indexes to efficiently query/search through data
+    You define relationships between datasets
+    NoSQL - non relational databases
+        Benefits:
+            Flexibility: easy to evolve data model
+            Scalability: Designed to scaleout by using distributed clusters
+            High performance: Optimized for specific data models
+            Highly functional: types optimized for data models
+### Databases and shared Responsibility model on AWS
+    AWS offers us to manage different databases
+    Benefit include:
+        Quick Provision, High availiability, Vertical and horizontal scaling
+        Automated backup and Restore, Operations, Upgrade
+        Operating system patches were handled by AWS
+        Monitoring, alerting
+    Note:
+        many database technologies can be run on EC2 instance, but you must handle yourself the resiliency, backup, patching, high availibility, fault tolerance, scaling
+### Amazon RDS Overview
+    RDS stands for Relational Database Service
+    It allows you to create databases in the cloud that are managed by AWS
+        Postgres
+        Mysql
+        MariaDB
+        Oracle
+        Microsoft SQL server
+        IBM DB2
+        Aurora(AWS propritory database)
+    Advantage over using RDS vs deploying db on EC2
+        RDS is managed service
+            Automated provisons, OS patching
+            Continous Backups and restore to specific timestamp(Point in time restore)
+            Monitoring dashboards
+            Read replicas for imporved read performance
+            Multi AZ setup for DR(Disaster Recovery)
+            Maintainance windows for upgrades
+            Scaling capability(verically and horizontally)
+            Storage backed by EBS
+        But you can't SSH into your instances
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055978](https://github.com/user-attachments/assets/1e08a198-0822-4bff-b620-d5286725794d)
+### Amazon Aurora
+    Aurora is proprietary technology of AWS(not open sourced)
+    Postgres and Mysql are both supported as Aurora DB
+    Aurora is AWS optimized and claims 5X performance improvement over MYSQL and 3X performance improvement than postgres on RDS
+    Aurora storage automatically grows in increments of 10GB, upto 128TB
+    Aurora costs more than RDS (20% more)- but it is more efficient
+    Not in the free tier
+    There is an option of serverless in aurora
+    Automated database instantiation and auto-scaling based on actual usage
+    Postgres and MYsql are both supported as Aurora Severless DB
+    No capacity planning needed
+    Least management overhead
+    Pay per second, can be more cost effective
+    Use cases: good for infrequent, intermittent or unpredictiable workloads
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055978 (1)](https://github.com/user-attachments/assets/8a397de7-c169-4b84-be3a-50638d709da5)
+
+### RDS handson
+    Naviage Aurora and RDS -> databases -> create database -> Choose standard database creation, 
+                                                              Change engine type to postgres db, 
+                                                              choose latest engine version, 
+                                                              Template free tier, 
+                                                              Avaliability zone - single AZ
+                                                              Enter master password
+                                                              Instance configuration
+                                                              Compute resource - Dont connect to EC2 instance compute resource
+                                                              Public access - public 
+                                                              VPC security group(firewall)
+                                                              Vpc group name - rds_firewall(some random name)
+                                                              Select AZ
+                                                              Click on create Db
+
+![image](https://github.com/user-attachments/assets/e09c6fde-32cd-44d4-8af0-188a073f8296)
+
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_24682526 (1)](https://github.com/user-attachments/assets/539b2806-bbea-4706-b55f-22490c174693)
+
+
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_24682526 (2)](https://github.com/user-attachments/assets/5e7a1401-305a-4c4c-9c30-e0ed2ad9fc06)
+
+
+        
         
     
     
