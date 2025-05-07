@@ -1618,6 +1618,113 @@
     Integrated with IAM for security, authorization and administration
     Low cost and autoscaling capabilites
     Standard and Infrequent Access Table class
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20055996](https://github.com/user-attachments/assets/0fa89903-f94f-40e8-bc66-e3aef0b40c14)
+### DynamoDB Accelerator - DAX
+    Fully managed in-memory cache for dynamo db
+    10x performance improvement - single digit millisecond to microsecond latency - when accessing you dynamodb tables
+    Secure, highly scalable and highly available
+    Difference between ElasticCache at CCP level: DAX is only used for and integrated Dynamodb, while ElasticCache is used for other databases
+### Hands on DB
+    Create table
+        Navigate -> Dynamo db
+        Tablename - Demo Table
+        Partition key - user_id
+        Default settings
+        create table
+    Add values to table
+        Go inside the table that i have created
+        Click on explore table items
+        Scroll down and click on create item
+        click on Add new attribute that adds colums and values
+### Dynamo Db Global table
+    Make Dynamo db accessible with low latency in multiple regions
+    Active-Active replication (read/write to any AWS region)
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_29102352](https://github.com/user-attachments/assets/f440b6d8-c678-4b54-9922-e699735b1c07)
+### Redshift overview
+    Redshift is based on PostgresSQL, but it is not for OLTP
+    OLTP - Online Analytics Processing(analytics and data warehousing)
+    Load data once every hour, not one second
+    10x better performance than other data warehouses, scale to PBs of data
+    Columnar storage of data inside of row based
+    Massively parallel Query Exectution(MPP), highly available
+    Pay as you go based on the instances provisioned
+    Has a SQL interface for performing the queries
+    BI tools such as AWS Quicksight or tableau intergrated with it
+#### Redshift serverless
+    Automatically provisions and scale data warehouse underlying capacity
+    Run analytics workloads without managing data warehouse infrastructure
+    Pay only for what you use
+    Use cases: Reporting, dashboarding applications, realtime-analytics
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20056000](https://github.com/user-attachments/assets/1663096c-9654-4eae-82a2-c6afbde54d90)
+#### Amazon EMR
+    EMR stands for Elastic MapReduce
+    EMR helps to create Hadoop clusters(Big Data) to analyze and process vast amount of data
+    The cluster can be made of hunderds of EC2 instances
+    Also supports Apache Spark, HBase, Presto, Flink
+    EMR takes care of all provisioning and configuration
+    Auto scaling and integrated with spot instances
+    Use cases: data processing, machine learning, web indexing, big data
+#### Amazon Athena
+    Serverless query service to perform analytics on s3 objects
+    Uses standard sql language to query the files
+    Supports CSV, JSON, ORC
+    Pricing: 5$ per TB data scanned
+    Use compressed or column data for cost savings(less scan)
+    Use cases: Business Intelligence, analytics, reporting, analyze and query VPC Flow logs, ELB logs
+    Exam Tip: analyze data in s3 using serverless SQL, use Athena
+#### Amazon Quicksight
+    Serverless machine learning-powered business intelligent service to create interactive dashboards
+    Fast, automatically scalable, embeddable, with per-session pricing
+    Use cases:
+        Business Analytics
+        Building visualization
+        perform ad-hoc analysis
+        Get business insights using data
+    Integrated with RDS, Aurora, Athena, Redshift, s3,...
+#### DocumentDB
+    Aurora is the AWS implementation of postgres/mysql
+    DocumentDb is the same for mongodb
+    Mongodb is used to store, query and index json data
+    Similar deployment concepts of aurora
+    Fully managed, highly avaliable with replication across 3 AZ
+    DocumentDb storage automatically grows in increments of 10GB
+    Automatically scales to workloads with millions of requests per second
+#### Neptune
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_24682534](https://github.com/user-attachments/assets/bf4062fc-13f2-441f-9324-f33352378414)
+#### Amazon Timestream
+    Fully managed, scalable, serverless time series database
+    Automatically scales up/down to adjust capacity
+    Store and analyse trillions of events per day
+    1000s time faster and 1/10th cost of relational database
+    Built in timeseries analytics functions(helps you identify patterns in your in near realtime)
+#### QLDB
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_24682538](https://github.com/user-attachments/assets/bb7ddab4-1a32-4128-ab45-ec5457c8e75d)
+#### Amazon Managed Blockchain
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_24682538](https://github.com/user-attachments/assets/caad36d5-4416-4fc7-8ab3-8e94749a0ad4)
+#### Amazon Glue
+    Used for ETL(Extract Transform and load)
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20514614](https://github.com/user-attachments/assets/45c425a0-8009-4138-9ea5-05422e468437)
+#### DMS - Data Migration Service
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20514614](https://github.com/user-attachments/assets/997b4118-59c6-4d1a-8013-bdeb6ddfe7d5)
+### Database and Analytics Summary in AWS
+    Relational Databases - OLTP: RDS and Aurora(SQL)
+    Difference between Multi-AZ, Read Replicas, Multi-Region
+    In-memory Cache Database: Elastic Cache
+    Key/value Database: DynamoDb(serverless) & DAX(cache for dynamo db)
+    warehouse - OLAP: Redshift(SQL)
+    Hadoop cluster - EMR
+    Athena - query data on s3(serverless and sql)
+    Quicksight - dashboards on your data(serverless)
+    DocumentDB - Aurora for MongoDB
+    Amazon QLDB - financial Transcations ledger(immutable, journal, cryptography verifiable)
+    Amazon Managed Blockchain - managed hyperledge fabric and Ethereum blockchains
+    Glue - Managed ETL and data catalog service
+    Database Migration - DMS
+    Neptune - Graph Database
+    Timestream - Timeseries database
+    
+    
+    
 
 
 
