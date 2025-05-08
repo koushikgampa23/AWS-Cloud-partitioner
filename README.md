@@ -1722,7 +1722,108 @@
     Database Migration - DMS
     Neptune - Graph Database
     Timestream - Timeseries database
-    
+## Docker
+### What is docker?
+    Docker is a software development platform to deploy applications
+    Apps are packaged inside the containers that can be run on any os
+    Apps run the same regardless of where they're run
+        Any machine
+        No compactiablilty issue
+        Predictable behaviour
+        Less work
+        Easier to maintain and deploy
+        Works with any language, any OS, any technology
+    Scale containers up and down every quickly
+### Where Docker images are stored?
+    Docker images are stored in Docker Repositiories
+    public:In the hub.docker.com
+        Find base images for many technologies or os:
+        Ubuntu
+        MySQL
+        NodeJS
+    Private: Amazon ECR(Elastic Container Registry)
+### Docker vs Virtual machines(VM)
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20056040](https://github.com/user-attachments/assets/b962b851-c878-467c-939b-fa5d73a43d86)
+### Deploy docker ?
+    ECS(Elastic Container service) or Fargate to deploy contianers, for storing contianers we can use ECR(Elastic Container Registry)
+### ECS
+    Elastic Container Service
+    Lauch Docker containers on EC2
+    You must provision and maintain the Infrastructure(the EC2 instances)
+    AWS starting and stopping of the containers
+    Has Integrations with the application load balancer(ALB)
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20056046](https://github.com/user-attachments/assets/7dc05472-039b-4441-973b-2cd82d3bb696)
+### Fargate
+    Launch docker containers on AWS
+    You donot need to provision the infrastructure(no EC2 instances to manage)- simpler
+    Serverless offering
+    AWS just run containers for you based on CPU/RAM you need
+    Whenever new docker container is created we dont know exactly how fargate will run and where we dont know, but it will run
+    from the below we can say that our new created container can be placed any where in the box
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20056046 (1)](https://github.com/user-attachments/assets/876b8a51-f912-4f19-b5be-2c246392a450)
+### ECR
+    Elastic Container Registry
+    Private docker container on AWS
+    This is where you store docker images so they can be run on ECS or fargate
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20056046 (2)](https://github.com/user-attachments/assets/2f1da088-53c0-40ca-953b-c7aa13348608)
+### Amazon EKS
+    EKS - Elastic Kubernetes Service
+    Allows you to lauch Kubernetes clusters on AWS
+    Kubernetes is open source system for management, deployment and scaling of containerized applications
+    Containers can be hosted on:
+        Ec2 instances
+        Fargate(serverless)
+    Kubernetes is cloud agnostic
+    (can be used in any cloud - Azure, GCP)
+### What is serverless?
+    Serverless is the new paradigm in which developers dont have to manage servers anymore
+    They just deploy code
+    They just deploy function
+    Initially serverless == FaaS
+    Serverless is pioneered by AWS lambda but now also includes anything thats managed: databases, messaging, storage, etc
+    Serverless doesnot mean there are no servers, it means you dont manage/provision/see them
+    As far the serverless serivces that are covered are S3, DynomoDB, Fargate, lambda
+### Lambda
+    EC2 Instance:
+        If we use EC2 instance that means we have Virtual servers in the cloud
+        But we are limited with RAM and CPU
+        Continously Running
+        Scaling means introvinsion for adding/removing servers(some times slow, little complicated to implement)
+    Lambda:
+        Virtual functions - no servers to manage
+        Limited by time - short execution
+        Run on-demand
+        Scaling is automated
+#### Benefits of Lambda functions
+    Easy Pricing
+        pay per request and compute time
+        Free tier of 10,00,000 AWS lambda requests and 4,00,000 GBs of compute time
+    Integrated with whole AWS suite of services
+    Event-driven: functions get invoked by AWS when needed
+    Integrated with many programming languages
+    Easy monitoring with AWS CloudWatch
+    Easy to get more resources per functions(upto 10gb of RAM)
+    Increasing RAM will improve CPU and network!
+#### AWS Language Support
+    Node JS
+    python
+    Java
+    C#/powershell
+    Ruby
+    Rust or Golang
+    Lambda container Image
+        the container image must implement lambda runtime API
+        ECS/fargate is preferred for running arbitary docker images
+#### Example Serverless thumbnail creation
+    Image is uploaded to s3 bucket lambda function is triggered pushing compressed version of thumbnail in s3 and pushing metadata of image into dynamodb, since dynamo db is serverless this architecture is good, since everything is serverless
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20056024](https://github.com/user-attachments/assets/e8fb833f-c735-401d-bbc3-b503f4f4d6e6)
+#### Serverless CRON job
+    To trigger a lambda function every hour, or weekly once, or monthly once
+    we lambda function with Cloudwatch events bridge that will run the scripts as per schedule time
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20056024](https://github.com/user-attachments/assets/9bc0ce3c-e086-44c2-9c54-31b320ea8dbc)
+#### Lambda Pricing
+![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20056024 (2)](https://github.com/user-attachments/assets/cbe519f4-4463-4f3c-93ad-eceaed959c5e)
+
     
     
 
