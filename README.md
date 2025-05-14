@@ -1823,7 +1823,15 @@
 ![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20056024](https://github.com/user-attachments/assets/9bc0ce3c-e086-44c2-9c54-31b320ea8dbc)
 #### Lambda Pricing
 ![tcsglobal udemy com_course_aws-certified-cloud-practitioner-new_learn_lecture_20056024 (2)](https://github.com/user-attachments/assets/cbe519f4-4463-4f3c-93ad-eceaed959c5e)
-
+#### Hands on Lambda
+    Navigate -> Lambda -> Dashboard -> Create function -> Select Use a blue print
+                                                          Blueprint name: Hello world python version
+                                                          function name: HelloWorld
+                                                          Select a new role with basic lambda permissions
+                                                          Create function
+                                                          Click on test tab 
+                                                          add event name: lambda event
+                                                          click on test
     
     
 
