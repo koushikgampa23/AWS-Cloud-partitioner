@@ -1847,6 +1847,77 @@
     You submit or schedule the batch jobs and AWS batch will do the rest.
     Batch jobs are defined as Docker images and run on ECS
     Helpful for cost optimization and focus less on the infrastructure
+### Batch vs Lambda
+    Lambda:
+        Time limit
+        Limited runtimes
+        limited temporary disk place
+        Serverless
+    Batch:
+        No time limit
+        Any runtime as long as it's packaged as docker image
+        Rely on EBS / instance store for disk space
+        Relies on EC2(can be managed by AWS)
+### Amazon Lightsail
+    When to use lightsail - If you have limited knowledge on cloud and with lesser configuration to run cloud instantly, with availability and no autoscaling
+    It provides Virtual servers, databases and networking
+    Low and prectiable pricing
+    Simplier alternative for EC2, EDS, ELB, EBS, Routing, S3
+    Great for people with little cloud experience
+    Can setup notifications and monitoring of your lightsail resources
+    Use cases:
+        Simple web applications(has templates for Nginx, Lamp, MEAN, Node js)
+        Websites(templates for wordpress, Joomla, Plesk)
+        if you have Dev/Test Environment in AWS
+    High availability with no autoscaling, limited AWS integrations
+#### Lightsail Handson
+    Navigate -> AWS Lightsail
+    Click on instances to create instance, select django, wordpress or node js
+    Click on the database create db postgres or mysql
+    In the instance click on the Public IPv4 address that will open that our django application is deployed in public
+### Summary
+    Docker: Container technology to run applications
+    ECS: run docker containers on EC2 instances but we need to provision this instances ahead
+    Fargate: 
+        Run docker containers without provisioning the infrastructure
+        Serverless offering(no EC2 instances)
+    ECR: Private Docker Images Repository
+    Batch: run batch jobs on AWS across managed EC2 instances
+    Lightsail: predictable and low pricing for simple applications and DB stacks
+    Lambda Summary:
+        Lambda is serverless, function as a service, seamless scaling, reactive
+        Lambda Billing:
+            By the time run x by the RAM provisioned
+            By the number of invocations
+        Language support:
+            supports many different programming languages except (arbituary) docker
+        Invocation time is 15 minutes
+        Use cases:
+            Create a tumbnail for images uploaded in s3
+            Run a Serverless cron job
+        API Gateway: Expose lambda functions as HTTP Api
+### Quiz
+
+## Deployment and managing infrastructure at scale
+    In this section we will see different ways to deploy your applications on cloud
+### Cloud Formation
+    CloudFormation is the declarative way of outlining your AWS infrastructure, for any resources(most of them are supported)
+    For Example, within a cloud formation template you say:
+        I want a security group
+        i want 2 instances using this security group
+        i want an s3 object
+        i want a load balancer(ELB), in front of these machines
+    Then cloudformation creates those for you, in the right order, with the exact configuration that you specify
+    Benefits of AWS Cloudformation
+        Infrastructure as Code:
+            No resources are created manually, which is excellent for control
+            Changes to the infrastructure are reviewed through code
+        Cost:
+            Each Resource within the stack is tagged with an identifier so that you can easily see how much a stack costs you.
+            you can estimate the costs of resources using cloud formation template
+            Saving strategy, In dev you could automation deletion of templates at 5pm and recreates at 8am, safely
+
+        
     
     
     
