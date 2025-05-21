@@ -1832,6 +1832,22 @@
                                                           Click on test tab 
                                                           add event name: lambda event
                                                           click on test
+### Amazon API Gateway 
+    Fully managed service for developers to easily create, publish, maintain, monitor, and secure API's
+    Serverless and capable
+    It supports restful apis and websocket apis
+    Support for security, user authentication, API throttling, API keys, monitoring
+    client(sends restful api request) -> API gateway(proxy the request) -> server -> Dynomo Db
+### AWS Batch
+    Fully managed batch processing at any scale
+    Efficiently run 1,00,000s of computing batch jobs of aws
+    A batch job is a job with a start and an end (opposed to continous)
+    Batch service will launch EC2 instance or spot instances to take the load
+    AWS Batch provisions right amount of compute / memory.
+    You submit or schedule the batch jobs and AWS batch will do the rest.
+    Batch jobs are defined as Docker images and run on ECS
+    Helpful for cost optimization and focus less on the infrastructure
+    
     
     
 
